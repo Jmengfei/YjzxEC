@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 27
-
 
     defaultConfig {
         minSdkVersion 21
@@ -21,6 +21,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -31,5 +36,17 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    implementation project(':latte-annotation')
+    api project(':latte-annotation')
+    // Fragmentation依赖
+    api 'me.yokeyword:fragmentation:0.10.1'
+    api 'me.yokeyword:fragmentation-swipeback:0.7.9'
+    // ButterKnife依赖
+    api 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    // 请求依赖
+    api 'com.squareup.okhttp3:okhttp:3.14.1'
+    api 'com.squareup.retrofit2:retrofit:2.5.0'
+    api 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    // load依赖
+    api 'com.wang.avi:library:2.1.3'
 }
