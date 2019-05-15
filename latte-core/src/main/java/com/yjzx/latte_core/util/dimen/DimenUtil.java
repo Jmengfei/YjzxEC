@@ -1,4 +1,4 @@
-package com.yjzx.latte_core.util;
+package com.yjzx.latte_core.util.dimen;
 
 import android.content.res.Resources;
 import android.util.DisplayMetrics;

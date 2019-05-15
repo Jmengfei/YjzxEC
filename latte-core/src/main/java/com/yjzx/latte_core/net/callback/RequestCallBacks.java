@@ -1,8 +1,8 @@
 package com.yjzx.latte_core.net.callback;
 
 import android.os.Handler;
-import com.yjzx.latte_core.ui.LatteLoader;
-import com.yjzx.latte_core.ui.LoaderStyle;
+import com.yjzx.latte_core.ui.loader.LatteLoader;
+import com.yjzx.latte_core.ui.loader.LoaderStyle;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

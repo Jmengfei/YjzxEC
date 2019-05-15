@@ -1,4 +1,4 @@
-package com.yjzx.latte_core.ui;
+package com.yjzx.latte_core.ui.loader;
 
 import android.content.Context;
 import com.wang.avi.AVLoadingIndicatorView;

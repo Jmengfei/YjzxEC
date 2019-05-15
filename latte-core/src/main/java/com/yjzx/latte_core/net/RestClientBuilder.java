@@ -5,7 +5,7 @@ import com.yjzx.latte_core.net.callback.IError;
 import com.yjzx.latte_core.net.callback.IFailure;
 import com.yjzx.latte_core.net.callback.IRequest;
 import com.yjzx.latte_core.net.callback.ISuccess;
-import com.yjzx.latte_core.ui.LoaderStyle;
+import com.yjzx.latte_core.ui.loader.LoaderStyle;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
