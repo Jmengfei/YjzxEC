@@ -2,6 +2,7 @@ package com.yjzx.yjzxec;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import com.yjzx.latte_core.delegates.LatteDelegate;
@@ -28,24 +29,25 @@ public class ExampleDelegate extends LatteDelegate {
 
     private void testRestClient(){
         RestClient.builder()
-                .url("http://news.baidu.com")
+                .url("http://127.0.0.1/index")
                 .loader(getContext())
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
+                        Log.d("hahaha onSuccess",response);
                         Toast.makeText(getContext(),response,Toast.LENGTH_LONG).show();
                     }
                 })
                 .failure(new IFailure() {
                     @Override
                     public void onFailure() {
-
+                        Log.d("hahaha onFailure","-----");
                     }
                 })
                 .error(new IError() {
                     @Override
                     public void onError(int code, String msg) {
-
+                        Log.d("hahaha onError",code+"---"+msg);
                     }
                 })
                 .build()

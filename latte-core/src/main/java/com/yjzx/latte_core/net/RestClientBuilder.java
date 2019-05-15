@@ -72,7 +72,7 @@ public class RestClientBuilder {
         return this;
     }
 
-    public final RestClientBuilder fileName(String name){
+    public final RestClientBuilder name(String name){
         this.mName = name;
         return this;
     }
