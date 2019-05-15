@@ -11,6 +11,7 @@ import com.yjzx.latte_core.app.Latte;
  */
 public class DimenUtil {
 
+
     public static int getScreenWidth(){
         final Resources resources = Latte.getApplicationContext().getResources();
         final DisplayMetrics dm = resources.getDisplayMetrics();
