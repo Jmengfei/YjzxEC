@@ -1,6 +1,7 @@
 package com.yjzx.yjzxec;
 
 import android.app.Application;
+import com.yjzx.latte.ec.database.DatabaseManager;
 import com.yjzx.latte_core.app.Latte;
 import com.yjzx.latte_core.net.interceptors.DebugInterceptor;
 
@@ -15,8 +16,10 @@ public class ExampleApp extends Application {
     public void onCreate() {
         super.onCreate();
         Latte.init(this)
-                .withApiHost("http://127.0.0.1/")
+                .withApiHost("http://appapi.yjzx.com/")
                 .withInterceptor(new DebugInterceptor("index",R.raw.test))
                 .configure();
+
+        DatabaseManager.getInstance().init(this);
     }
 }
