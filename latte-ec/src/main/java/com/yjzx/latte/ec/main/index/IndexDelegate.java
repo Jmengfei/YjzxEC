@@ -52,11 +52,11 @@ public class IndexDelegate extends BottomItemDelegate {
         mRefreshLayout.setProgressViewOffset(true,120,300);
     }
 
-
     @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
         initRefreshLayout();
+        mRefreshHandler.firstPage("/api/home/indexv4");
     }
 
     @Override

@@ -19,7 +19,7 @@ public class ExampleApp extends Application {
     public void onCreate() {
         super.onCreate();
         Latte.init(this)
-                .withApiHost("http://appapi.yjzx.com/")
+                .withApiHost("http://appapi.yjzx.com")
                 .withInterceptor(new DebugInterceptor("index",R.raw.test))
                 .withWeChatAppId("")
                 .withWeChatAppSecret("")

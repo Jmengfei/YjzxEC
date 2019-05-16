@@ -47,7 +47,7 @@ public class SignInDelegate extends LatteDelegate {
     void onClickSignIn(){
         if (checkForm()){
             RestClient.builder()
-                    .url("http://appapi.yjzx.com/api/login")
+                    .url("/api/login")
                     .params("username", mName.getText().toString())
                     .params("password", mPassword.getText().toString())
                     .success(new ISuccess() {
