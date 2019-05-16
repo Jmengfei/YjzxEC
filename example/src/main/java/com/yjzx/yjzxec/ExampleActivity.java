@@ -11,6 +11,7 @@ import com.yjzx.latte.ec.sign.ISignListener;
 import com.yjzx.latte.ec.sign.SignInDelegate;
 import com.yjzx.latte.ec.sign.SignUpDelegate;
 import com.yjzx.latte_core.activities.ProxyActivity;
+import com.yjzx.latte_core.app.Latte;
 import com.yjzx.latte_core.delegates.LatteDelegate;
 import com.yjzx.latte_core.ui.launcher.ILauncherListener;
 import com.yjzx.latte_core.ui.launcher.OnLauncherFinishTag;
@@ -24,6 +25,8 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
         if (actionBar != null){
             actionBar.hide();
         }
+
+        Latte.getConfigurator().withActivity(this);
 
     }
 

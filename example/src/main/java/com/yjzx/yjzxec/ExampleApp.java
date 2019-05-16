@@ -18,6 +18,8 @@ public class ExampleApp extends Application {
         Latte.init(this)
                 .withApiHost("http://appapi.yjzx.com/")
                 .withInterceptor(new DebugInterceptor("index",R.raw.test))
+                .withWeChatAppId("")
+                .withWeChatAppSecret("")
                 .configure();
 
         DatabaseManager.getInstance().init(this);

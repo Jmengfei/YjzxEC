@@ -11,5 +11,8 @@ public enum ConfigKeys {
     CONFIG_READY, // 我的控制是否完成
     ICON,// 其他
     LOADER_DELAYED,
-    INTERCEPTOR
+    INTERCEPTOR,
+    WE_CHAT_APP_ID,
+    WE_CHAT_APP_SECRET,
+    ACTIVITY
 }
