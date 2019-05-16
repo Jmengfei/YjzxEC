@@ -13,6 +13,7 @@ import com.joanzapata.iconify.widget.IconTextView;
 import com.yjzx.latte.ec.R;
 import com.yjzx.latte.ec.R2;
 import com.yjzx.latte_core.delegates.bottom.BottomItemDelegate;
+import com.yjzx.latte_core.ui.refresh.RefreshHandler;
 
 /**
  * @author jmf
@@ -34,6 +35,14 @@ public class IndexDelegate extends BottomItemDelegate {
     @BindView(R2.id.et_search_view)
     AppCompatEditText mSearchView = null;
 
+
+    private RefreshHandler mRefreshHandler = null;
+
+    @Override
+    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
+        mRefreshHandler = new RefreshHandler(mRefreshLayout);
+    }
+
     private void initRefreshLayout(){
         mRefreshLayout.setColorSchemeResources(
                 android.R.color.holo_blue_bright,
@@ -45,12 +54,14 @@ public class IndexDelegate extends BottomItemDelegate {
 
 
     @Override
+    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
+        super.onLazyInitView(savedInstanceState);
+        initRefreshLayout();
+    }
+
+    @Override
     public Object setLayout() {
         return R.layout.delegate_index;
     }
 
-    @Override
-    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-
-    }
 }

@@ -1,9 +1,16 @@
 package com.yjzx.latte_core.app;
 
 import android.app.Activity;
+import android.os.Handler;
+import butterknife.internal.Utils;
+import com.joanzapata.iconify.IconFontDescriptor;
+import com.joanzapata.iconify.Iconify;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 import okhttp3.Interceptor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.WeakHashMap;
 
 /**
@@ -13,20 +20,21 @@ import java.util.WeakHashMap;
  */
 public class Configurator {
 
-    private static final WeakHashMap<Object,Object> LATTE_CONFIGS = new WeakHashMap<>();
-
+    private static final HashMap<Object, Object> LATTE_CONFIGS = new HashMap<>();
+    private static final Handler HANDLER = new Handler();
+    private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
     private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
-
 
     private Configurator(){
         LATTE_CONFIGS.put(ConfigKeys.CONFIG_READY,false);
+        LATTE_CONFIGS.put(ConfigKeys.HANDLER, HANDLER);
     }
 
     static Configurator getInstance(){
         return Holder.INSTANCE;
     }
 
-    final WeakHashMap<Object,Object> getLatteConfigs(){
+    final HashMap<Object,Object> getLatteConfigs(){
         return LATTE_CONFIGS;
     }
 
@@ -35,11 +43,33 @@ public class Configurator {
     }
 
     public final void configure(){
-        LATTE_CONFIGS.put(ConfigKeys.CONFIG_READY,true);
+        initIcons();
+        Logger.addLogAdapter(new AndroidLogAdapter());
+        LATTE_CONFIGS.put(ConfigKeys.CONFIG_READY, true);
+//        Utils.init(Latte.getApplicationContext());
     }
 
     public final Configurator withApiHost(String host){
         LATTE_CONFIGS.put(ConfigKeys.API_HOST,host);
+        return this;
+    }
+
+    public final Configurator withLoaderDelayed(long delayed) {
+        LATTE_CONFIGS.put(ConfigKeys.LOADER_DELAYED, delayed);
+        return this;
+    }
+
+    private void initIcons() {
+        if (ICONS.size() > 0) {
+            final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));
+            for (int i = 1; i < ICONS.size(); i++) {
+                initializer.with(ICONS.get(i));
+            }
+        }
+    }
+
+    public final Configurator withIcon(IconFontDescriptor descriptor) {
+        ICONS.add(descriptor);
         return this;
     }
 
