@@ -1,6 +1,9 @@
 package com.yjzx.yjzxec;
 
 import android.app.Application;
+import com.joanzapata.iconify.Iconify;
+import com.joanzapata.iconify.fonts.FontAwesomeModule;
+import com.joanzapata.iconify.fonts.IoniconsModule;
 import com.yjzx.latte.ec.database.DatabaseManager;
 import com.yjzx.latte_core.app.Latte;
 import com.yjzx.latte_core.net.interceptors.DebugInterceptor;
@@ -23,5 +26,8 @@ public class ExampleApp extends Application {
                 .configure();
 
         DatabaseManager.getInstance().init(this);
+
+        Iconify.with(new FontAwesomeModule())
+                .with(new IoniconsModule());
     }
 }
